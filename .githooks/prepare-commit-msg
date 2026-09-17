@@ -1,0 +1,15 @@
+#!/bin/sh
+# Prefill the commit editor with the Conventional Commits template.
+# Only for a fresh commit opened in the editor — skipped for -m, merges,
+# squashes, and amends (those already carry a message).
+
+COMMIT_MSG_FILE="$1"
+COMMIT_SOURCE="$2"
+
+[ -n "$COMMIT_SOURCE" ] && exit 0
+
+TEMPLATE="$(git rev-parse --show-toplevel)/.githooks/commit-template.txt"
+[ -f "$TEMPLATE" ] || exit 0
+
+# Prepend the template above git's default comment block.
+cat "$TEMPLATE" "$COMMIT_MSG_FILE" > "$COMMIT_MSG_FILE.tmp" && mv "$COMMIT_MSG_FILE.tmp" "$COMMIT_MSG_FILE"

@@ -1,0 +1,46 @@
+#!/bin/sh
+# Validate the commit message: Conventional Commits subject + a Tests: line,
+# with no leftover template placeholders.
+
+COMMIT_MSG_FILE="$1"
+
+TYPES='feat|fix|test|refactor|docs|build|chore'
+SCOPES='memory|hash|tree|sort|join|concurrency|recovery'
+
+# Real content only: drop comment lines.
+CONTENT=$(grep -v '^#' "$COMMIT_MSG_FILE")
+
+# Subject = first non-blank line.
+SUBJECT=$(printf '%s\n' "$CONTENT" | sed '/^[[:space:]]*$/d' | head -n1)
+
+fail=0
+err() { echo "commit-msg: $1" >&2; }
+
+if ! printf '%s' "$SUBJECT" | grep -Eq "^($TYPES)(\(($SCOPES)\))?: .+"; then
+  err "subject must be '<type>(<scope>): <summary>'"
+  err "  type:  $TYPES"
+  err "  scope: $SCOPES  (optional; required-ish for algorithm work)"
+  err "  got:   '$SUBJECT'"
+  fail=1
+fi
+
+# The Tests: line is only required for algorithm commits — i.e. when the
+# subject carries one of the algorithm scopes. Tooling commits (build/chore,
+# or no scope) don't need it.
+if printf '%s' "$SUBJECT" | grep -Eq "^($TYPES)\(($SCOPES)\): .+"; then
+  if printf '%s\n' "$CONTENT" | grep -q '<type>\|<scope>\|<summary>\|<suite'; then
+    err "template placeholders (<...>) still present — fill them in"
+    fail=1
+  fi
+  TESTS=$(printf '%s\n' "$CONTENT" | grep -E '^[[:space:]]*Tests:' | head -n1 \
+          | sed -E 's/^[[:space:]]*Tests:[[:space:]]*//')
+  if [ -z "$TESTS" ]; then
+    err "missing a non-empty 'Tests:' line (which suite ran and the result)"
+    fail=1
+  fi
+fi
+
+if [ "$fail" -ne 0 ]; then
+  err "commit rejected — edit your message and retry."
+  exit 1
+fi

@@ -1,0 +1,12 @@
+<type>(<scope>): <summary>
+
+
+# Conventional Commits — one algorithm per commit.
+# type:  feat|fix|test|refactor|docs|build|chore
+# scope: memory|hash|tree|sort|join|concurrency|recovery
+#
+# Fill the body above this block: what changed and why (wrap ~72 cols).
+# The Tests: line is required for algorithm commits (those with a scope above);
+# for build/chore or scopeless commits you can delete it.
+
+Tests: <suite — result>
