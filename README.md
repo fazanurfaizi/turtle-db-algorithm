@@ -57,7 +57,7 @@ flowchart TD
 
 ## Memory Management — Lecture #06
 
-### LRU Replacer — `[ ]`
+### LRU Replacer — `[x]`
 
 - **What:** Evict the page that was Least Recently Used.
 - **How:** Track access order (queue / linked list + map). On eviction, drop the
@@ -249,7 +249,7 @@ flowchart TD
 
 | Algorithm           | Lecture | Category          | turtle-db | Roadmap   |
 | ------------------- | ------- | ----------------- | --------- | --------- |
-| LRU Replacer        | #06     | Eviction          | `[ ]`     | Phase 1   |
+| LRU Replacer        | #06     | Eviction          | `[x]`     | Phase 1   |
 | LRU-K Replacer      | #06     | Eviction          | `[ ]`     | Phase 1   |
 | Cuckoo Hashing      | #07     | Hash table        | `[ ]`     | Phase 4   |
 | Extendible Hashing  | #07     | Hash index        | `[ ]`     | Phase 4   |
