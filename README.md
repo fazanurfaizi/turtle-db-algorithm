@@ -77,7 +77,7 @@ flowchart TD
   frequently-used pages (small k-distance) from one-off scanned pages (`+∞`).
 - **turtle-db:** Not started; would upgrade the current `LRUReplacer`.
 
-### Clock / Second-Chance — `[ ]`
+### Clock / Second-Chance — `[x]`
 
 - **What:** LRU approximation using one reference bit per frame arranged in a ring.
 - **How:** A "clock hand" sweeps frames; if `ref_bit == 1` clear it and skip
@@ -251,6 +251,7 @@ flowchart TD
 | ------------------- | ------- | ----------------- | --------- | --------- |
 | LRU Replacer        | #06     | Eviction          | `[x]`     | Phase 1   |
 | LRU-K Replacer      | #06     | Eviction          | `[x]`     | Phase 1   |
+| Clock Replacer      | #06     | Eviction          | `[x]`     | Phase 1   |
 | Cuckoo Hashing      | #07     | Hash table        | `[ ]`     | Phase 4   |
 | Extendible Hashing  | #07     | Hash index        | `[ ]`     | Phase 4   |
 | Linear Hashing      | #07     | Hash index        | `[ ]`     | Phase 4   |
