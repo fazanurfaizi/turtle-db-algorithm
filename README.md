@@ -64,7 +64,7 @@ flowchart TD
   oldest un-pinned frame.
 - **turtle-db:** Built — `LRUReplacer` in the buffer pool.
 
-### LRU-K Replacer — `[ ]`
+### LRU-K Replacer — `[x]`
 
 - **What:** Evict based on the **K-th most recent** access, not just the last one.
   Fixes LRU's weakness against sequential-flooding (a big scan touching each page
@@ -250,7 +250,7 @@ flowchart TD
 | Algorithm           | Lecture | Category          | turtle-db | Roadmap   |
 | ------------------- | ------- | ----------------- | --------- | --------- |
 | LRU Replacer        | #06     | Eviction          | `[x]`     | Phase 1   |
-| LRU-K Replacer      | #06     | Eviction          | `[ ]`     | Phase 1   |
+| LRU-K Replacer      | #06     | Eviction          | `[x]`     | Phase 1   |
 | Cuckoo Hashing      | #07     | Hash table        | `[ ]`     | Phase 4   |
 | Extendible Hashing  | #07     | Hash index        | `[ ]`     | Phase 4   |
 | Linear Hashing      | #07     | Hash index        | `[ ]`     | Phase 4   |
