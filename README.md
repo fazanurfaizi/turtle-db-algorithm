@@ -93,7 +93,7 @@ flowchart TD
   empty slot.
 - **Gotcha:** Deletions need tombstones or shifting to avoid breaking probe chains.
 
-### Cuckoo Hashing — `[ ]`
+### Cuckoo Hashing — `[x]`
 
 - **What:** Worst-case **O(1) lookups** using multiple hash tables/functions.
 - **How:** Keep `d` hash functions (usually 2). On insert, place the key in any of
@@ -242,28 +242,3 @@ flowchart TD
      itself idempotent/restartable.
 - **Key ideas:** WAL, repeating history, logging undo progress via CLRs.
 - **turtle-db:** Not started — Roadmap Phase 6.
-
----
-
-## Quick reference table
-
-| Algorithm           | Lecture | Category          | turtle-db | Roadmap   |
-| ------------------- | ------- | ----------------- | --------- | --------- |
-| LRU Replacer        | #06     | Eviction          | `[x]`     | Phase 1   |
-| LRU-K Replacer      | #06     | Eviction          | `[x]`     | Phase 1   |
-| Clock Replacer      | #06     | Eviction          | `[x]`     | Phase 1   |
-| Cuckoo Hashing      | #07     | Hash table        | `[ ]`     | Phase 4   |
-| Extendible Hashing  | #07     | Hash index        | `[ ]`     | Phase 4   |
-| Linear Hashing      | #07     | Hash index        | `[ ]`     | Phase 4   |
-| B+Tree              | #08     | Tree index        | `[ ]`     | Phase 4   |
-| Latch Crabbing      | #09     | Index concurrency | `[ ]`     | Phase 4/5 |
-| External Merge Sort | #10     | Sorting           | `[ ]`     | Phase 3   |
-| Hash Aggregation    | #10     | Aggregation       | `[ ]`     | Phase 3   |
-| Nested-Loop Join    | #11     | Join              | `[ ]`     | Phase 3   |
-| Sort-Merge Join     | #11     | Join              | `[ ]`     | Phase 3   |
-| Hash Join           | #11     | Join              | `[ ]`     | Phase 3   |
-| 2PL                 | #16     | Concurrency       | `[ ]`     | Phase 5   |
-| Timestamp Ordering  | #17     | Concurrency       | `[ ]`     | Phase 5   |
-| MVCC                | #18     | Concurrency       | `[ ]`     | Phase 5   |
-| Write-Ahead Log     | #19     | Recovery          | `[ ]`     | Phase 6   |
-| ARIES               | #20     | Recovery          | `[ ]`     | Phase 6   |
