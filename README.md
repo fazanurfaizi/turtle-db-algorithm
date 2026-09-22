@@ -87,7 +87,7 @@ flowchart TD
 
 ## Hash Tables — Lecture #07
 
-### Linear Probing — `[ ]`
+### Linear Probing — `[x]`
 
 - **What:** Open-addressing hash table; on collision, scan forward to the next
   empty slot.
